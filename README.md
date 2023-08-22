@@ -10,3 +10,8 @@ Using the official Python extension in VSCode:
 4. Choose venv
 5. We're working with python 3.10 if you have a higher version setup you should be fine
 6. Choose `requirements.txt` to install of the dependencies for the project
+
+Command to start up server in root of project:
+``` shell
+uvicorn --app-dir src main:app --reload
+```
