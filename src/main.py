@@ -17,7 +17,7 @@ def test():
 @app.get("/test/{campus}/{room}")
 def process(campus:str, room:str):
     slug = f"/{campus.upper()}/{room}"
-    URL = BASE_URL+f'?orderBy="slug"&equalTo="{slug}"'
+    URL = BASE_URL+f'.json?orderBy="slug"&equalTo="{slug}"'
     req = requests.get(URL)
     data = req.json()
     try:
@@ -33,6 +33,7 @@ def process(id:str):
     URL = f"{BASE_URL}/{id}.json"
     req = requests.get(URL)
     data = req.json()
+    print(data)
     if data == None:
         return PlainTextResponse('Does not exist',status_code=404)
     return RedirectResponse(data['redirectTo'])
